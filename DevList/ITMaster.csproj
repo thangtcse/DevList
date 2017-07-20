@@ -60,8 +60,10 @@
     <Content Include="AddCourse.aspx" />
     <Content Include="Center.aspx" />
     <Content Include="EditClass.aspx" />
+    <Content Include="include\AdminNavBarWithoutCenter.html" />
     <Content Include="include\EditorNavBar.html" />
     <Content Include="include\AdminNavBar.html" />
+    <Content Include="include\TeacherNavBarOnlyAttendance.html" />
     <Content Include="lib\bootstrap-2.3.2.min.css" />
     <Content Include="Logout.aspx" />
     <Content Include="RemoveClass.aspx" />
