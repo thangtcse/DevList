@@ -34,6 +34,7 @@ namespace ITMaster.DataAccessLayer
 
 
 
+
         public static void EditAccount(Account a)
         {
             SqlConnection conn = new SqlConnection(GetConnectionString());
@@ -140,6 +141,110 @@ namespace ITMaster.DataAccessLayer
                 String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
 
                 Account acc = new Account(id, name, role, email, password);
+
+                list.Add(acc);
+
+            }
+            conn.Close();
+            return list;
+        }
+
+        public static List<Admin> GetAdminList()
+        {
+            List<Admin> list = new List<Admin>();
+            SqlConnection conn = new SqlConnection(GetConnectionString());
+            conn.Open();
+            String query = "SELECT * FROM " + DBDefine.DATABASE_TABLE_ACCOUNT + " WHERE " + DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE + " = 1";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                int id = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ID].ToString().Trim());
+                String name = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_NAME].ToString().Trim();
+                int role = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE].ToString().Trim());
+                String email = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL].ToString().Trim();
+                String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
+
+                Admin acc = new Admin(id, name, role, email, password);
+
+                list.Add(acc);
+
+            }
+            conn.Close();
+            return list;
+        }
+
+        public static List<CenterAdmin> GetCenterAccountList()
+        {
+            List<CenterAdmin> list = new List<CenterAdmin>();
+            SqlConnection conn = new SqlConnection(GetConnectionString());
+            conn.Open();
+            String query = "SELECT * FROM " + DBDefine.DATABASE_TABLE_ACCOUNT + " WHERE " + DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE + " = 2";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                int id = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ID].ToString().Trim());
+                String name = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_NAME].ToString().Trim();
+                int role = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE].ToString().Trim());
+                String email = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL].ToString().Trim();
+                String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
+
+                CenterAdmin acc = new CenterAdmin(id, name, role, email, password);
+
+                list.Add(acc);
+
+            }
+            conn.Close();
+            return list;
+        }
+
+        public static List<Staff> GetStaffList()
+        {
+            List<Staff> list = new List<Staff>();
+            SqlConnection conn = new SqlConnection(GetConnectionString());
+            conn.Open();
+            String query = "SELECT * FROM " + DBDefine.DATABASE_TABLE_ACCOUNT + " WHERE " + DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE + " = 3";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                int id = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ID].ToString().Trim());
+                String name = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_NAME].ToString().Trim();
+                int role = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE].ToString().Trim());
+                String email = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL].ToString().Trim();
+                String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
+
+                Staff acc = new Staff(id, name, role, email, password);
+
+                list.Add(acc);
+
+            }
+            conn.Close();
+            return list;
+        }
+
+        public static List<Teacher> GetTeacherList()
+        {
+            List<Teacher> list = new List<Teacher>();
+            SqlConnection conn = new SqlConnection(GetConnectionString());
+            conn.Open();
+            String query = "SELECT * FROM " + DBDefine.DATABASE_TABLE_ACCOUNT + " WHERE " + DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE + " = 4";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                int id = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ID].ToString().Trim());
+                String name = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_NAME].ToString().Trim();
+                int role = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE].ToString().Trim());
+                String email = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL].ToString().Trim();
+                String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
+
+                Teacher acc = new Teacher(id, name, role, email, password);
 
                 list.Add(acc);
 

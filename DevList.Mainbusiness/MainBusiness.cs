@@ -17,6 +17,8 @@ namespace ITMaster.MainbusinessLayer
             DataAccess.CreateAccount(a);
         }
 
+       
+
         public static void EditAccount(Account a)
         {
             DataAccess.EditAccount(a);

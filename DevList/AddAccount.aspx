@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddAccount.aspx.cs" Inherits="ITMaster.AddAccount" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddAccount.aspx.cs" Inherits="ITMaster.AddAccount" %>
 
 <!DOCTYPE html>
 

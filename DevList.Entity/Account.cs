@@ -30,5 +30,9 @@ namespace ITMaster.Entity
             this.Email = email;
             this.Password = password;
         }
+
+        public Account()
+        {
+        }
     }
 }

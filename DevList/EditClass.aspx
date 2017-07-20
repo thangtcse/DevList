@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditClass.aspx.cs" Inherits="ITMaster.EditClass" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditClass.aspx.cs" Inherits="ITMaster.EditClass" %>
 
 <!DOCTYPE html>
 

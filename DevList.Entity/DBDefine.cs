@@ -8,9 +8,16 @@ namespace ITMaster.Entity
     public static class DBDefine
     {
         public const string DATABASE_TABLE_ACCOUNT = "Account";
+
+        public const string DATABASE_TABLE_CENTER_ADMIN = "CenterAdmin";
+        public const string DATABASE_TABLE_STAFF = "Staff";
+        public const string DATABASE_TABLE_TEACHER = "Teacher";
+
         public const string DATABASE_TABLE_CENTER = "Center";
         public const string DATABASE_TABLE_COURSE = "Course";
         public const string DATABASE_TABLE_CLASS = "Class";
+
+        public const string DATABASE_COLUMN_ID = "id";
 
         public const string DATABASE_COLUMN_ACCOUNT_ID = "id";
         public const string DATABASE_COLUMN_ACCOUNT_NAME = "name";
@@ -29,5 +36,7 @@ namespace ITMaster.Entity
         public const string DATABASE_COLUMN_CLASS_ID = "id";
         public const string DATABASE_COLUMN_CLASS_NAME = "name";
         public const string DATABASE_COLUMN_CLASS_COURSE_ID = "courseId";
+
+        //public const string 
     }
 }

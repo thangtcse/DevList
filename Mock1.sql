@@ -3,21 +3,23 @@ GO
 USE SWD_PROJECT
 GO
 
-CREATE TABLE Account(
-id int identity(1,1) primary key not null,
-name nvarchar(50) not null,
-role int not null,
-email varchar(50) not null,
-[password] varchar(50) not null
-)
-GO
-
 CREATE TABLE Center(
 id int identity(1, 1) primary key not null,
 name nvarchar(50) not null,
 location nvarchar(100) not null
 )
 GO
+
+CREATE TABLE Account(
+id int identity(1,1) primary key not null,
+name nvarchar(50) not null,
+role int not null,
+email varchar(50) not null,
+[password] varchar(50) not null,
+centerId int foreign key references Center(id) null
+)
+GO
+
 
 CREATE TABLE Course(
 id int identity(1,1) primary key not null,
@@ -33,17 +35,28 @@ courseId int foreign key references Course(id)
 )
 GO
 
-INSERT INTO Account VALUES ('Lã Xuân Khánh', 1, 'khanhlx@itmaster.com.vn', '123@123ab')
-INSERT INTO Account VALUES ('Nguyễn Công Long', 1,  'dinhnt6@itmaster.com.vn', '123@123ab')
-INSERT INTO Account VALUES ('Nguyễn Chí Thành',2, 'hiepnv13@itmaster.com.vn', '123@123ab')
-INSERT INTO Account VALUES ('Lê Thanh Hiếu',3, 'hieult15@itmaster.com.vn', '123@123ab')
-INSERT INTO Account VALUES ('Nguyễn Minh Hoàng',3, 'duonghtn@itmaster.com.vn', '123@123ab')
-GO
-
 INSERT INTO Center VALUES ('IT Master 1', 'Hà Nội')
 INSERT INTO Center VALUES ('IT Master 2', 'Đà Nẵng')
 INSERT INTO Center VALUES ('IT Master 3', 'TP. Hồ Chí Minh')
 GO
+
+
+INSERT INTO Account VALUES ('Lã Xuân Khánh', 1, 'khanhlx@itmaster.com.vn', '123@123ab', NULL)
+INSERT INTO Account VALUES ('Nguyễn Công Long', 1,  'dinhnt6@itmaster.com.vn', '123@123ab', NULL)
+INSERT INTO Account VALUES ('Nguyễn Chí Thành',2, 'hiepnv13@itmaster.com.vn', '123@123ab', 1)
+INSERT INTO Account VALUES ('Lê Thanh Hiếu',2, 'hieult15@itmaster.com.vn', '123@123ab', 2)
+INSERT INTO Account VALUES ('Nguyễn Minh Hoàng',2, 'duonghtn@itmaster.com.vn', '123@123ab', 3)
+INSERT INTO Account VALUES ('Nguyễn Chí Thành',3, 'hiepnv13@itmaster.com.vn', '123@123ab', 1)
+INSERT INTO Account VALUES ('Lê Thanh Hiếu',3, 'hieult15@itmaster.com.vn', '123@123ab', 2)
+INSERT INTO Account VALUES ('Nguyễn Minh Hoàng',3, 'duonghtn@itmaster.com.vn', '123@123ab', 3)
+INSERT INTO Account VALUES ('Nguyễn Chí Thành',4, 'hiepnv13@itmaster.com.vn', '123@123ab', 1)
+INSERT INTO Account VALUES ('Lê Thanh Hiếu',4, 'hieult15@itmaster.com.vn', '123@123ab', 2)
+INSERT INTO Account VALUES ('Nguyễn Minh Hoàng',4, 'duonghtn@itmaster.com.vn', '123@123ab', 3)
+INSERT INTO Account VALUES ('Nguyễn Chí Thành',4, 'hiepnv13@itmaster.com.vn', '123@123ab', 1)
+INSERT INTO Account VALUES ('Lê Thanh Hiếu',4, 'hieult15@itmaster.com.vn', '123@123ab', 2)
+INSERT INTO Account VALUES ('Nguyễn Minh Hoàng',4, 'duonghtn@itmaster.com.vn', '123@123ab', 3)
+GO
+
 
 INSERT INTO Course VALUES ('TƯ DUY LẬP TRÌNH "8 giờ sáng tạo"', 1)
 INSERT INTO Course VALUES ('Nhập môn C', 1)
@@ -57,5 +70,10 @@ INSERT INTO Class VALUES('IS1002', 1)
 INSERT INTO Class VALUES('IS2001', 2)
 INSERT INTO Class VALUES('IS2002', 2)
 INSERT INTO Class VALUES('IS3001', 3)
+INSERT INTO Class VALUES('IS4002', 4)
+INSERT INTO Class VALUES('IS4001', 4)
+INSERT INTO Class VALUES('IS5001', 5)
+INSERT INTO Class VALUES('IS5002', 5)
+INSERT INTO Class VALUES('IS5003', 5)
 
 

@@ -39,6 +39,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="Teacher.cs" />
+    <Compile Include="Staff.cs" />
+    <Compile Include="CenterAdmin.cs" />
+    <Compile Include="Admin.cs" />
     <Compile Include="Center.cs" />
     <Compile Include="Classes.cs" />
     <Compile Include="Course.cs" />

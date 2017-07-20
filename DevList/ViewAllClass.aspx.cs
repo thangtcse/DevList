@@ -11,10 +11,10 @@ namespace ITMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["accountId"] != null)
-            {
-                Response.Redirect("Login.aspx");
-            }
+            //if (Session["accountId"] != null)
+            //{
+            //    Response.Redirect("Login.aspx");
+            //}
         }
     }
 }

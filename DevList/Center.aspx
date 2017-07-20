@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Center.aspx.cs" Inherits="ITMaster.Center" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Center.aspx.cs" Inherits="ITMaster.Center" %>
 
 <!DOCTYPE html>
 
