@@ -21,20 +21,12 @@
 
             <div class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Select A Course</label>
+                    <label class="col-md-4 control-label">Select a Course</label>
                     <div class="col-md-4">
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                                Select Course
-                                    <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Select Course 1</a></li>
-                                <li><a href="#">Select Course 2</a></li>
-                                <li><a href="#">Select Course 3</a></li>
-                                <li><a href="#">Select Course 4</a></li>
-                                <li><a href="#">Select Course 5</a></li>
-                            </ul>
+                        <div class="btn-group">
+                            <asp:DropDownList ID="ddlCourse" CssClass="btn-primary form-control" runat="server">
+
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>

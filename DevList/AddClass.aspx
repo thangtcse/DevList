@@ -20,7 +20,6 @@
 
             <div class="form-horizontal">
 
-
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label">Class Name</label>
@@ -33,7 +32,7 @@
                     <label class="col-md-4 control-label">Select a Course</label>
                     <div class="col-md-4">
                         <div class="btn-group">
-                            <asp:DropDownList ID="DropDownList1" class="btn-primary form-control" runat="server">
+                            <asp:DropDownList ID="DropDownList1" CssClass="btn-primary form-control" runat="server">
 
                             </asp:DropDownList>
                         </div>
@@ -56,12 +55,6 @@
     </form>
 
     <script>
-
-        $(".dropdown-menu li a").click(function () {
-            var selText = $(this).text();
-            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
-        });
-
         $(document).ready(function () {
             $("#load").load("include/<%= Session["navBar"] %>", function () {
                 $("#addClass").toggleClass("liClassSelected");

@@ -24,8 +24,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4">
-
-                        <button type="button" class="form-control btn btn-primary">Load</button>
+                        <asp:Button ID="Button1" CssClass="form-control btn btn-primary" runat="server" Text="Load All Course" />
                     </div>
                 </div>
 

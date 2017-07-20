@@ -25,10 +25,8 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Select a Course</label>
                     <div class="col-md-4">
-                        <div class="btn-group">
-                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Select a Course <span class="caret"></span></a>
-                           
-                             <asp:DropDownList ID="drCourse" class="dropdown-menu" runat="server" OnSelectedIndexChanged="drCourse_SelectedIndexChanged">
+                        <div class="btn-group">                        
+                             <asp:DropDownList ID="drCourse" class="btn-primary form-control" runat="server" OnSelectedIndexChanged="drCourse_SelectedIndexChanged">
 
                             </asp:DropDownList>
                         </div>
@@ -38,10 +36,8 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Select a Class</label>
                     <div class="col-md-4">
-                        <div class="btn-group">
-                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Select a Class <span class="caret"></span></a>
-                            
-                            <asp:DropDownList ID="drClass" class="dropdown-menu" runat="server">
+                        <div class="btn-group">                            
+                            <asp:DropDownList ID="drClass" class="btn-primary form-control" runat="server">
 
                             </asp:DropDownList>
                         </div>
@@ -70,11 +66,6 @@
         </div>
     </form>
     <script>
-        $(".dropdown-menu li a").click(function () {
-            var selText = $(this).text();
-            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
-        });
-
         $(document).ready(function () {
             $("#load").load("include/<%= Session["navBar"] %>", function () {
                 $("#editClass").toggleClass("liClassSelected");
