@@ -27,7 +27,7 @@
                     <label class="col-md-4 control-label">Select a Course</label>
                     <div class="col-md-4">
                         <div class="btn-group">
-                            <asp:DropDownList ID="ddlCourse" CssClass="btn-primary form-controls" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlCourse" CssClass="btn-primary form-control" runat="server"></asp:DropDownList>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     <label class="col-md-4 control-label">Select a Class</label>
                     <div class="col-md-4">
                         <div class="btn-group">
-                            <asp:DropDownList ID="ddlClass" CssClass="btn-primary form-controls" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlClass" CssClass="btn-primary form-control" runat="server"></asp:DropDownList>
                         </div>
                     </div>
                 </div>

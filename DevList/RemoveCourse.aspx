@@ -26,11 +26,10 @@
                     <label class="col-md-4 control-label">Select a Course</label>
                     <div class="col-md-4">
                         <div class="btn-group">
-                            <asp:DropDownList ID="ddlCourse" CssClass="btn-primary form-controls" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlCourse" CssClass="btn-primary form-control" runat="server"></asp:DropDownList>
                         </div>
                     </div>
                 </div>
-
 
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
