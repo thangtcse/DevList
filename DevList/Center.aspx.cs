@@ -11,10 +11,18 @@ namespace ITMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["accountId"] == null)
-            //{
-            //    Response.Redirect("Login.aspx");
-            //}
+            if (Session["accountId"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
+
+        protected void addCenter_Click(object sender, EventArgs e)
+        {
+            string name = tbCenterName.Text.Trim();
+            string address = tbAddress.Text.Trim();
+
+            MainbusinessLayer.MainBusiness.CreateCenter(new Entity.Center(name, address));
         }
     }
 }

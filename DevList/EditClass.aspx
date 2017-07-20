@@ -19,17 +19,7 @@
 
         <div class="mainPage">
 
-
             <div class="form-horizontal">
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Select a Course</label>
-                    <asp:DropDownList ID="ddlCourse" runat="server">
-                        
-                    </asp:DropDownList>
-
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                </div>
 
                 <!-- Text input-->
                 <div class="form-group">
@@ -37,13 +27,10 @@
                     <div class="col-md-4">
                         <div class="btn-group">
                             <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Select a Course <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Course 1</a></li>
-                                <li><a href="#">Course 2</a></li>
-                                <li><a href="#">Course 3</a></li>
-                                <li><a href="#">Course 4</a></li>
-                                <li><a href="#">Course 5</a></li>
-                            </ul>
+                           
+                             <asp:DropDownList ID="drCourse" class="dropdown-menu" runat="server" OnSelectedIndexChanged="drCourse_SelectedIndexChanged">
+
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>
@@ -53,13 +40,10 @@
                     <div class="col-md-4">
                         <div class="btn-group">
                             <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Select a Class <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Class 1</a></li>
-                                <li><a href="#">Class 2</a></li>
-                                <li><a href="#">Class 3</a></li>
-                                <li><a href="#">Class 4</a></li>
-                                <li><a href="#">Class 5</a></li>
-                            </ul>
+                            
+                            <asp:DropDownList ID="drClass" class="dropdown-menu" runat="server">
+
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>
@@ -76,7 +60,7 @@
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4">
 
-                        <button type="button" name="button" class="form-control btn btn-primary">Submit</button>
+                     <asp:Button type="button" name="button" class="form-control btn btn-primary" runat="server" Text="Submit" OnClick="Unnamed1_Click"></asp:Button>
                     </div>
                 </div>
 
@@ -92,7 +76,7 @@
         });
 
         $(document).ready(function () {
-            $("#load").load("include/AdminNavBar.html", function () {
+            $("#load").load("include/<%= Session["navBar"] %>", function () {
                 $("#editClass").toggleClass("liClassSelected");
             });
         });

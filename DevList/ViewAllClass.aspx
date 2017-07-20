@@ -63,7 +63,7 @@
     </form>
     <script>
         $(document).ready(function () {
-            $("#load").load("include/AdminNavBar.html", function () {
+            $("#load").load("include/<%= Session["navBar"] %>", function () {
                 $("#viewAllClass").toggleClass("liClassSelected");
             });
         });

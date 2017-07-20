@@ -18,5 +18,11 @@ namespace ITMaster.Entity
             this.CenterName = centerName;
             this.Location = location;
         }
+
+        public Center(string centerName, string location)
+        {
+            this.CenterName = centerName;
+            this.Location = location;
+        }
     }
 }

@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label">Center Name</label>
                         <div class="col-md-4">
-                            <input placeholder="Class name" class="form-control input-md" type="text">
+                            <asp:TextBox ID="tbCenterName" placeholder="Class name" class="form-control input-md" type="text" runat="server" ></asp:TextBox>
                         </div>
                     </div>
 
@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label">Address</label>
                         <div class="col-md-4">
-                            <input placeholder="Address" class="form-control input-md" type="text">
+                            <asp:TextBox ID="tbAddress" placeholder="Address" class="form-control input-md" type="text" runat="server" ></asp:TextBox>
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@
                         <label class="col-md-4 control-label"></label>
                         <div class="col-md-4">
 
-                            <button type="button" name="button" class="form-control btn btn-primary">Submit</button>
+                            <asp:Button ID="addCenter" class="form-control btn btn-primary" runat="server" Text="Submit" OnClick="addCenter_Click"></asp:Button>
                         </div>
                     </div>
                 </fieldset>
@@ -55,7 +55,7 @@
     
     <script>
         $(document).ready(function () {
-            $("#load").load("include/AdminNavBar.html", function () {
+            $("#load").load("include/<%= Session["navBar"] %>", function () {
                 $("#center").toggleClass("liClassSelected");
             });
         });

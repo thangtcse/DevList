@@ -17,7 +17,7 @@ namespace ITMaster.MainbusinessLayer
             DataAccess.CreateAccount(a);
         }
 
-       
+
 
         public static void EditAccount(Account a)
         {
@@ -116,6 +116,11 @@ namespace ITMaster.MainbusinessLayer
             return DataAccess.GetAllCourses();
         }
 
+        public static List<Course> GetCourseByCenterId(int centerId)
+        {
+            return DataAccess.GetCourseByCenterId(centerId);
+        }
+
         //Class
         public static void CreateClass(Classes c)
         {
@@ -140,6 +145,10 @@ namespace ITMaster.MainbusinessLayer
         public static List<Classes> GetAllClasses()
         {
             return DataAccess.GetAllClasses();
+        }
+        public static List<Classes> GetClassesByCourseId(int courseId)
+        {
+            return DataAccess.GetClassesByCourseId(courseId);
         }
 
     }

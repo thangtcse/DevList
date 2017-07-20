@@ -41,20 +41,20 @@ INSERT INTO Center VALUES ('IT Master 3', 'TP. Hồ Chí Minh')
 GO
 
 
-INSERT INTO Account VALUES ('Lã Xuân Khánh', 1, 'khanhlx@itmaster.com.vn', '123@123ab', NULL)
-INSERT INTO Account VALUES ('Nguyễn Công Long', 1,  'dinhnt6@itmaster.com.vn', '123@123ab', NULL)
+INSERT INTO Account VALUES ('Lã Xuân Khánh', 1, 'khanhlx@itmaster.com.vn', '123@123ab', 1)
+INSERT INTO Account VALUES ('Nguyễn Công Long', 1,  'dinhnt6@itmaster.com.vn', '123@123ab', 1)
 INSERT INTO Account VALUES ('Nguyễn Chí Thành',2, 'hiepnv13@itmaster.com.vn', '123@123ab', 1)
 INSERT INTO Account VALUES ('Lê Thanh Hiếu',2, 'hieult15@itmaster.com.vn', '123@123ab', 2)
 INSERT INTO Account VALUES ('Nguyễn Minh Hoàng',2, 'duonghtn@itmaster.com.vn', '123@123ab', 3)
-INSERT INTO Account VALUES ('Nguyễn Chí Thành',3, 'hiepnv13@itmaster.com.vn', '123@123ab', 1)
-INSERT INTO Account VALUES ('Lê Thanh Hiếu',3, 'hieult15@itmaster.com.vn', '123@123ab', 2)
-INSERT INTO Account VALUES ('Nguyễn Minh Hoàng',3, 'duonghtn@itmaster.com.vn', '123@123ab', 3)
-INSERT INTO Account VALUES ('Nguyễn Chí Thành',4, 'hiepnv13@itmaster.com.vn', '123@123ab', 1)
-INSERT INTO Account VALUES ('Lê Thanh Hiếu',4, 'hieult15@itmaster.com.vn', '123@123ab', 2)
-INSERT INTO Account VALUES ('Nguyễn Minh Hoàng',4, 'duonghtn@itmaster.com.vn', '123@123ab', 3)
-INSERT INTO Account VALUES ('Nguyễn Chí Thành',4, 'hiepnv13@itmaster.com.vn', '123@123ab', 1)
-INSERT INTO Account VALUES ('Lê Thanh Hiếu',4, 'hieult15@itmaster.com.vn', '123@123ab', 2)
-INSERT INTO Account VALUES ('Nguyễn Minh Hoàng',4, 'duonghtn@itmaster.com.vn', '123@123ab', 3)
+INSERT INTO Account VALUES ('Nguyễn Chí Thành',3, 'hieunv13@itmaster.com.vn', '123@123ab', 1)
+INSERT INTO Account VALUES ('Lê Thanh Hiếu',3, 'hoalt15@itmaster.com.vn', '123@123ab', 2)
+INSERT INTO Account VALUES ('Nguyễn Minh Hoàng',3, 'duchtn@itmaster.com.vn', '123@123ab', 3)
+INSERT INTO Account VALUES ('Nguyễn Chí Thành',4, 'hipnv13@itmaster.com.vn', '123@123ab', 1)
+INSERT INTO Account VALUES ('Lê Thanh Hiếu',4, 'hieut1@itmaster.com.vn', '123@123ab', 2)
+INSERT INTO Account VALUES ('Nguyễn Minh Hoàng',4, 'duontn@itmaster.com.vn', '123@123ab', 3)
+INSERT INTO Account VALUES ('Nguyễn Chí Thành',4, 'hiv13@itmaster.com.vn', '123@123ab', 1)
+INSERT INTO Account VALUES ('Lê Thanh Hiếu',4, 'hieu5@itmaster.com.vn', '123@123ab', 2)
+INSERT INTO Account VALUES ('Nguyễn Minh Hoàng',4, 'duhtn@itmaster.com.vn', '123@123ab', 3)
 GO
 
 

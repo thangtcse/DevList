@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Class Name</label>
                     <div class="col-md-4">
-                        <input placeholder="Class name" class="form-control input-md" type="text"/>
+                        <asp:TextBox ID="tbName" placeholder="Class name" class="form-control input-md" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
@@ -33,14 +33,9 @@
                     <label class="col-md-4 control-label">Select a Course</label>
                     <div class="col-md-4">
                         <div class="btn-group">
-                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Select a Course <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Course 1</a></li>
-                                <li><a href="#">Course 2</a></li>
-                                <li><a href="#">Course 3</a></li>
-                                <li><a href="#">Course 4</a></li>
-                                <li><a href="#">Course 5</a></li>
-                            </ul>
+                            <asp:DropDownList ID="DropDownList1" class="btn-primary form-control" runat="server">
+
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>
@@ -49,7 +44,7 @@
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4">
 
-                        <button type="button" name="button" class="form-control btn btn-primary">Submit</button>
+                        <asp:Button type="button" name="button" class="form-control btn btn-primary" runat="server" Text="Submit" OnClick="Unnamed1_Click"></asp:Button>
                     </div>
                 </div>
 
@@ -68,7 +63,7 @@
         });
 
         $(document).ready(function () {
-            $("#load").load("include/AdminNavBar.html", function () {
+            $("#load").load("include/<%= Session["navBar"] %>", function () {
                 $("#addClass").toggleClass("liClassSelected");
             });
         });

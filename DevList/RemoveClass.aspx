@@ -71,7 +71,7 @@
         });
 
         $(document).ready(function () {
-            $("#load").load("include/AdminNavBar.html", function () {
+            $("#load").load("include/<%= Session["navBar"] %>", function () {
                 $("#removeClass").toggleClass("liClassSelected");
             });
         });

@@ -479,6 +479,30 @@ namespace ITMaster.DataAccessLayer
             return null;
         }
 
+        public static List<Course> GetCourseByCenterId(int centerId)
+        {
+            List<Course> list = new List<Course>();
+            SqlConnection conn = new SqlConnection(GetConnectionString());
+            conn.Open();
+            String query = "SELECT * FROM " + DBDefine.DATABASE_TABLE_COURSE + " where "
+                + DBDefine.DATABASE_COLUMN_COURSE_CENTER_ID + " = @id";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", centerId);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                int id = int.Parse(dr[DBDefine.DATABASE_COLUMN_COURSE_ID].ToString().Trim());
+                String name = dr[DBDefine.DATABASE_COLUMN_COURSE_NAME].ToString().Trim();
+
+                Course course = new Course(id, name, centerId);
+
+                list.Add(course);
+
+            }
+            conn.Close();
+            return list;
+        }
+
         //Database for Class
         public static void CreateClass(Classes c)
         {
@@ -535,6 +559,30 @@ namespace ITMaster.DataAccessLayer
                 int id = int.Parse(dr[DBDefine.DATABASE_COLUMN_CLASS_ID].ToString().Trim());
                 String name = dr[DBDefine.DATABASE_COLUMN_CLASS_NAME].ToString().Trim();
                 int courseId = int.Parse(dr[DBDefine.DATABASE_COLUMN_CLASS_COURSE_ID].ToString().Trim());
+
+                Classes cl = new Classes(id, name, courseId);
+
+                list.Add(cl);
+
+            }
+            conn.Close();
+            return list;
+        }
+
+        public static List<Classes> GetClassesByCourseId(int courseId)
+        {
+            List<Classes> list = new List<Classes>();
+            SqlConnection conn = new SqlConnection(GetConnectionString());
+            conn.Open();
+            String query = "SELECT * FROM " + DBDefine.DATABASE_TABLE_CLASS + " where "
+                + DBDefine.DATABASE_COLUMN_CLASS_COURSE_ID + " = @id"; ;
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", courseId);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                int id = int.Parse(dr[DBDefine.DATABASE_COLUMN_CLASS_ID].ToString().Trim());
+                String name = dr[DBDefine.DATABASE_COLUMN_CLASS_NAME].ToString().Trim();
 
                 Classes cl = new Classes(id, name, courseId);
 

@@ -81,7 +81,7 @@
         });
 
         $(document).ready(function () {
-            $("#load").load("include/AdminNavBar.html", function () {
+            $("#load").load("include/<%= Session["navBar"] %>", function () {
                 $("#editCourse").toggleClass("liClassSelected");
             });
         });

@@ -69,7 +69,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4">
-                        <asp:Button ID="btnSubmit" CssClass="form-control btn btn-primary" runat="server" Text="Submit" />
+                        <asp:Button ID="btnSubmit" CssClass="form-control btn btn-primary" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
                     </div>
                 </div>
 
@@ -83,7 +83,7 @@
         });
 
         $(document).ready(function () {
-            $("#load").load("include/AdminNavBar.html", function () {
+            $("#load").load("include/<%= Session["navBar"] %>", function () {
                 $("#addAccount").toggleClass("liClassSelected");
             });
         });

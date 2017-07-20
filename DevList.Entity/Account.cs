@@ -35,6 +35,16 @@ namespace ITMaster.Entity
             this.CenterId = centerId;
         }
 
+        public Account(String name, int role, String email, String password)
+        {
+
+            this.Name = name;
+            this.Role = role;
+            this.Email = email;
+            this.Password = password;
+ 
+        }
+
         public Account()
         {
         }

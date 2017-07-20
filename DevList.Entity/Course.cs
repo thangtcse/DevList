@@ -18,5 +18,10 @@ namespace ITMaster.Entity
             this.CourseName = courseName;
             this.CenterId = centerId;
         }
+        public Course(string courseName, int centerId)
+        {
+            this.CourseName = courseName;
+            this.CenterId = centerId;
+        }
     }
 }

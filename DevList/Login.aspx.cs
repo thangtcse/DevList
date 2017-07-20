@@ -36,8 +36,9 @@ namespace ITMaster
                 Session["accountId"] = loginAccount.Id;
                 Session["accountRole"] = loginAccount.Role;
                 Session["firstTime"] = "1";
+                Session["centerId"] = loginAccount.CenterId; 
 
-                
+
                 string navBar = "";
                 switch(loginAccount.Role)
                 {
