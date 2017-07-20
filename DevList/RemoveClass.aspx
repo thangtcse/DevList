@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RemoveClass.aspx.cs" Inherits="ITMaster.RemoveClass" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RemoveClass.aspx.cs" Inherits="ITMaster.RemoveClass" %>
 
 <!DOCTYPE html>
 

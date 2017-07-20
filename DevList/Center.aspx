@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Center.aspx.cs" Inherits="ITMaster.Center" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Center.aspx.cs" Inherits="ITMaster.Center" %>
 
 <!DOCTYPE html>
 
@@ -51,14 +51,15 @@
         </div>
     </form>
 
+
+    
     <script>
-
-
         $(document).ready(function () {
             $("#load").load("include/AdminNavBar.html", function () {
                 $("#center").toggleClass("liClassSelected");
             });
         });
     </script>
+   
 </body>
 </html>

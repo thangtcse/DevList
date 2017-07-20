@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="TakeAttendance.aspx.cs" Inherits="ITMaster.TakeAttendance" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TakeAttendance.aspx.cs" Inherits="ITMaster.TakeAttendance" %>
 
 <!DOCTYPE html>
 

@@ -34,20 +34,6 @@
                         </div>
                         <div class="control-group">
                             <!-- Center-->
-                            <label class="control-label">Center</label>
-                            <div class="controls">
-                                <div class="btn-group">
-                                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Select a Center <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Center 1</a></li>
-                                        <li><a href="#">Center 2</a></li>
-                                        <li><a href="#">Center 3</a></li>
-                                        <li><a href="#">Center 4</a></li>
-                                        <li><a href="#">Center 5</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                         <div class="control-group">
                             <!-- Button -->
                             <div class="controls">

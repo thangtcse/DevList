@@ -23,7 +23,8 @@ namespace ITMaster.Entity
         public const string DATABASE_COLUMN_ACCOUNT_NAME = "name";
         public const string DATABASE_COLUMN_ACCOUNT_ROLE = "role";
         public const string DATABASE_COLUMN_ACCOUNT_EMAIL = "email";
-        public const string DATABASE_COLUMN_ACCOUNT_PASSWORD = "[password]";
+        public const string DATABASE_COLUMN_ACCOUNT_PASSWORD = "password";
+        public const string DATABASE_COLUMN_ACCOUNT_CENTERID = "centerId";
 
         public const string DATABASE_COLUMN_CENTER_ID = "id";
         public const string DATABASE_COLUMN_CENTER_NAME = "name";
@@ -37,6 +38,5 @@ namespace ITMaster.Entity
         public const string DATABASE_COLUMN_CLASS_NAME = "name";
         public const string DATABASE_COLUMN_CLASS_COURSE_ID = "courseId";
 
-        //public const string 
     }
 }

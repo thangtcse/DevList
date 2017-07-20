@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ViewAllClass.aspx.cs" Inherits="ITMaster.ViewAllClass" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewAllClass.aspx.cs" Inherits="ITMaster.ViewAllClass" %>
 
 <!DOCTYPE html>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditClass.aspx.cs" Inherits="ITMaster.EditClass" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditClass.aspx.cs" Inherits="ITMaster.EditClass" %>
 
 <!DOCTYPE html>
 
@@ -19,7 +19,17 @@
 
         <div class="mainPage">
 
+
             <div class="form-horizontal">
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Select a Course</label>
+                    <asp:DropDownList ID="ddlCourse" runat="server">
+                        
+                    </asp:DropDownList>
+
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                </div>
 
                 <!-- Text input-->
                 <div class="form-group">

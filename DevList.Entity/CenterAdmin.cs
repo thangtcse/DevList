@@ -8,13 +8,14 @@ namespace ITMaster.Entity
     public class CenterAdmin : Account
     {
 
-        public CenterAdmin(int centerId, String name, int role, String email, String password) : base()
+        public CenterAdmin(int centerAdminId, String name, int role, String email, String password, int centerId) : base()
         {
             this.Id = centerId;
             this.Name = name;
             this.Role = role;
             this.Email = email;
             this.Password = password;
+            this.CenterId = centerId;
         }
     }
 }

@@ -36,20 +36,29 @@ namespace ITMaster
                 Session["accountId"] = loginAccount.Id;
                 Session["accountRole"] = loginAccount.Role;
                 Session["firstTime"] = "1";
-                switch (loginAccount.Role)
+
+                
+                string navBar = "";
+                switch(loginAccount.Role)
                 {
                     case 1:
-                        Response.Redirect("Login.aspx");
+                        navBar = "AdminNavBar.html";
                         break;
                     case 2:
+                        navBar = "AdminNavBarWithoutCenter.html";
                         break;
                     case 3:
+                        navBar = "EditorNavBar.html";
+                        break;
+                    case 4:
+                        navBar = "TeacherNavBar.html";
                         break;
                     default:
                         break;
-                }
-                
 
+                }
+                Session["navBar"] = navBar;
+                Response.Redirect("Home.aspx");
             }
 
         }

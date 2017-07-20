@@ -12,9 +12,12 @@ namespace ITMaster.Entity
         public String Email { get; set; }
         public int Role { get; set; }
         // 1: Admin
-        // 2: Staff
-        // 3: Teacher
+        // 2: CenterId
+        // 3: Staff
+        // 4: Teacher
         public String Password { get; set; }
+
+        public int CenterId { get; set; }
 
         public Account(String name, String email, String password)
         {
@@ -22,13 +25,14 @@ namespace ITMaster.Entity
             this.Password = password;
         }
 
-        public Account(int id, String name, int role, String email, String password)
+        public Account(int id, String name, int role, String email, String password, int centerId)
         {
             this.Id = id;
             this.Name = name;
             this.Role = role;
             this.Email = email;
             this.Password = password;
+            this.CenterId = centerId;
         }
 
         public Account()

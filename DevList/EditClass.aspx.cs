@@ -9,12 +9,20 @@ namespace ITMaster
 {
     public partial class EditClass : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (Session["accountId"] == null)
             //{
             //    Response.Redirect("Login.aspx");
             //}
+
+            ListItem lt = new ListItem();
+            lt.Value = "test";
+
+            ddlCourse.Items.Add(lt);
         }
+
+        
     }
 }

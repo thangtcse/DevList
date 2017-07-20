@@ -56,13 +56,14 @@
   <ItemGroup>
     <Content Include="AddAccount.aspx" />
     <Content Include="AddClass.aspx" />
-    <Content Include="AdminHome.aspx" />
     <Content Include="AddCourse.aspx" />
     <Content Include="Center.aspx" />
     <Content Include="EditClass.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="include\AdminNavBar.html" />
     <Content Include="include\AdminNavBarWithoutCenter.html" />
     <Content Include="include\EditorNavBar.html" />
-    <Content Include="include\AdminNavBar.html" />
+    <Content Include="include\TeacherNavBar.html" />
     <Content Include="include\TeacherNavBarOnlyAttendance.html" />
     <Content Include="lib\bootstrap-2.3.2.min.css" />
     <Content Include="Logout.aspx" />
@@ -76,7 +77,6 @@
     <Content Include="lib\stylemain.css" />
     <Content Include="Login.aspx" />
     <Content Include="TakeAttendance.aspx" />
-    <Content Include="include\TeacherNavBar.html" />
     <Content Include="ViewAllClass.aspx" />
     <Content Include="ViewAllCourse.aspx" />
     <Content Include="Web.config">
@@ -99,13 +99,6 @@
     <Compile Include="AddClass.aspx.designer.cs">
       <DependentUpon>AddClass.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminHome.aspx.cs">
-      <DependentUpon>AdminHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminHome.aspx.designer.cs">
-      <DependentUpon>AdminHome.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AddCourse.aspx.cs">
       <DependentUpon>AddCourse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,6 +119,13 @@
     </Compile>
     <Compile Include="EditClass.aspx.designer.cs">
       <DependentUpon>EditClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>

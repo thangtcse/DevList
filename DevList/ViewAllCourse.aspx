@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ViewAllCourse.aspx.cs" Inherits="ITMaster.ViewAllCourse" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewAllCourse.aspx.cs" Inherits="ITMaster.ViewAllCourse" %>
 
 <!DOCTYPE html>
 
@@ -46,7 +46,7 @@
     </form>
     <script>
         $(document).ready(function () {
-            $("#load").load("include/AdminNavBar.html", function () {
+            $("#load").load("include//<%= Session["navBar"] %>", function () {
                 $("#viewAllCourse").toggleClass("liClassSelected");
             });
         });

@@ -44,6 +44,26 @@ namespace ITMaster.MainbusinessLayer
             return DataAccess.GetAccountList();
         }
 
+        public static List<Admin> GetAdminList()
+        {
+            return DataAccess.GetAdminList();
+        }
+
+        public static List<CenterAdmin> GetCenterAdminList()
+        {
+            return DataAccess.GetCenterAdminList();
+        }
+
+        public static List<Staff> GetStaffList()
+        {
+            return DataAccess.GetStaffList();
+        }
+
+        public static List<Teacher> GetTeacherList()
+        {
+            return DataAccess.GetTeacherList();
+        }
+
         //Center
         public static void CreateCenter(Center c)
         {

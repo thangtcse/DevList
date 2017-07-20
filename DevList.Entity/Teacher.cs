@@ -9,13 +9,14 @@ namespace ITMaster.Entity
     {
         public int TeacherId { get; set; }
 
-        public Teacher(int teacherId, String name, int role, String email, String password) : base()
+        public Teacher(int teacherId, String name, int role, String email, String password, int centerId) : base()
         {
             this.Id = teacherId;
             this.Name = name;
             this.Role = role;
             this.Email = email;
             this.Password = password;
+            this.CenterId = centerId;
         }
     }
 }

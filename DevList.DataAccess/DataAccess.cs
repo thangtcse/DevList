@@ -22,12 +22,13 @@ namespace ITMaster.DataAccessLayer
         {
             SqlConnection conn = new SqlConnection(GetConnectionString());
             conn.Open();
-            String query = "INSERT INTO " + DBDefine.DATABASE_TABLE_ACCOUNT + "VALUES(@name, @role, @email, @password)";
+            String query = "INSERT INTO " + DBDefine.DATABASE_TABLE_ACCOUNT + "VALUES(@name, @role, @email, @password, @centerId)";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@name", a.Name);
             cmd.Parameters.AddWithValue("@role", a.Role);
             cmd.Parameters.AddWithValue("@email", a.Email);
             cmd.Parameters.AddWithValue("@password", a.Password);
+            cmd.Parameters.AddWithValue("@centerId", a.CenterId);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -43,13 +44,15 @@ namespace ITMaster.DataAccessLayer
                 + DBDefine.DATABASE_COLUMN_ACCOUNT_NAME + " = @name,"
                 + DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE + " = @role,"
                 + DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL + " = @email,"
-                + DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD + " = @password"
-                + "where" + DBDefine.DATABASE_COLUMN_ACCOUNT_ID + " = @id";
+                + DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD + " = @password,"
+                + DBDefine.DATABASE_COLUMN_ACCOUNT_CENTERID + " = @centerId "
+                + " where " + DBDefine.DATABASE_COLUMN_ACCOUNT_ID + " = @id";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@name", a.Name);
             cmd.Parameters.AddWithValue("@role", a.Role);
             cmd.Parameters.AddWithValue("@email", a.Email);
             cmd.Parameters.AddWithValue("@password", a.Password);
+            cmd.Parameters.AddWithValue("@centerId", a.CenterId);
             cmd.Parameters.AddWithValue("@id", a.Id);
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -61,7 +64,7 @@ namespace ITMaster.DataAccessLayer
             SqlConnection conn = new SqlConnection(GetConnectionString());
             conn.Open();
             String query = "DELETE FROM " + DBDefine.DATABASE_TABLE_ACCOUNT
-                 + " where" + DBDefine.DATABASE_COLUMN_ACCOUNT_ID + " = @id";
+                 + " where " + DBDefine.DATABASE_COLUMN_ACCOUNT_ID + " = @id";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@id", accId);
             cmd.ExecuteNonQuery();
@@ -71,29 +74,44 @@ namespace ITMaster.DataAccessLayer
         public static Account GetAccountByEmailAndPassword(String emailInput, String passwordInput)
         {
             SqlConnection conn = new SqlConnection(GetConnectionString());
-            conn.Open();
-            String query = "SELECT * FROM " + DBDefine.DATABASE_TABLE_ACCOUNT
-                + " where" 
+            try
+            {
+                if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+                String query = "SELECT * FROM " + DBDefine.DATABASE_TABLE_ACCOUNT
+                + " where "
                 + DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL + " = @email AND "
                 + DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD + " = @password";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@email", emailInput);
-            cmd.Parameters.AddWithValue("@password", passwordInput);
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@email", emailInput);
+                cmd.Parameters.AddWithValue("@password", passwordInput);
 
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    int id = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ID].ToString().Trim());
+                    String name = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_NAME].ToString().Trim();
+                    int role = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE].ToString().Trim());
+                    String email = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL].ToString().Trim();
+                    String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
+                    int centerId = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_CENTERID].ToString().Trim());
+
+                    Account a = new Account(id, name, role, email, password, centerId);
+                    return a;
+
+                }
+
+            } catch (SqlException se)
             {
-                int id = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ID].ToString().Trim());
-                String name = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_NAME].ToString().Trim();
-                int role = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE].ToString().Trim());
-                String email = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL].ToString().Trim();
-                String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
-
-                Account a = new Account(id, name, role, email, password);
-                return a;
-
+                System.Diagnostics.Debug.WriteLine(se.Message);
             }
-            conn.Close();
+            finally
+            {
+                conn.Close();
+            }
+
+
+            
+            
             return null;
         }
 
@@ -102,7 +120,7 @@ namespace ITMaster.DataAccessLayer
             SqlConnection conn = new SqlConnection(GetConnectionString());
             conn.Open();
             String query = "SELECT * FROM " + DBDefine.DATABASE_TABLE_ACCOUNT
-                 + " where" + DBDefine.DATABASE_COLUMN_ACCOUNT_ID + " = @id";
+                 + " where " + DBDefine.DATABASE_COLUMN_ACCOUNT_ID + " = @id";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@id", id);
 
@@ -113,8 +131,9 @@ namespace ITMaster.DataAccessLayer
                 int role = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE].ToString().Trim());
                 String email = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL].ToString().Trim();
                 String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
+                int centerId = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_CENTERID].ToString().Trim());
 
-                Account a = new Account(id, name, role, email, password);
+                Account a = new Account(id, name, role, email, password, centerId);
                 return a;
 
             }
@@ -139,8 +158,9 @@ namespace ITMaster.DataAccessLayer
                 int role = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE].ToString().Trim());
                 String email = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL].ToString().Trim();
                 String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
+                int centerId = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_CENTERID].ToString().Trim());
 
-                Account acc = new Account(id, name, role, email, password);
+                Account acc = new Account(id, name, role, email, password, centerId);
 
                 list.Add(acc);
 
@@ -165,8 +185,9 @@ namespace ITMaster.DataAccessLayer
                 int role = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE].ToString().Trim());
                 String email = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL].ToString().Trim();
                 String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
+                int centerId = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_CENTERID].ToString().Trim());
 
-                Admin acc = new Admin(id, name, role, email, password);
+                Admin acc = new Admin(id, name, role, email, password, centerId);
 
                 list.Add(acc);
 
@@ -175,7 +196,7 @@ namespace ITMaster.DataAccessLayer
             return list;
         }
 
-        public static List<CenterAdmin> GetCenterAccountList()
+        public static List<CenterAdmin> GetCenterAdminList()
         {
             List<CenterAdmin> list = new List<CenterAdmin>();
             SqlConnection conn = new SqlConnection(GetConnectionString());
@@ -191,8 +212,9 @@ namespace ITMaster.DataAccessLayer
                 int role = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE].ToString().Trim());
                 String email = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL].ToString().Trim();
                 String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
+                int centerId = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_CENTERID].ToString().Trim());
 
-                CenterAdmin acc = new CenterAdmin(id, name, role, email, password);
+                CenterAdmin acc = new CenterAdmin(id, name, role, email, password, centerId);
 
                 list.Add(acc);
 
@@ -217,8 +239,10 @@ namespace ITMaster.DataAccessLayer
                 int role = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE].ToString().Trim());
                 String email = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL].ToString().Trim();
                 String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
+                int centerId = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_CENTERID].ToString().Trim());
 
-                Staff acc = new Staff(id, name, role, email, password);
+                Staff acc = new Staff(id, name, role, email, password, centerId);
+
 
                 list.Add(acc);
 
@@ -243,8 +267,10 @@ namespace ITMaster.DataAccessLayer
                 int role = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_ROLE].ToString().Trim());
                 String email = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_EMAIL].ToString().Trim();
                 String password = dr[DBDefine.DATABASE_COLUMN_ACCOUNT_PASSWORD].ToString().Trim();
+                int centerId = int.Parse(dr[DBDefine.DATABASE_COLUMN_ACCOUNT_CENTERID].ToString().Trim());
 
-                Teacher acc = new Teacher(id, name, role, email, password);
+                Teacher acc = new Teacher(id, name, role, email, password, centerId);
+
 
                 list.Add(acc);
 
